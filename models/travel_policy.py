@@ -342,8 +342,11 @@ class TravelPolicy(models.Model):
         ages = []
         for rec in DOB:
             today = datetime.today().date()
-            # DOB = datetime.strptime(rec, '%Y-%m-%d').date()
-            difference = relativedelta(today, rec)
+            if isinstance(rec, str) == True:
+                DOB = datetime.strptime(rec, '%Y-%m-%d').date()
+                difference = relativedelta(today, DOB)
+            else:
+                difference = relativedelta(today, rec)
             age = difference.years
             months = difference.months
             days = difference.days
@@ -354,8 +357,10 @@ class TravelPolicy(models.Model):
 
     @api.model
     def calculate_period(self,when,to):
-        # when = datetime.strptime(when, '%Y-%m-%d').date()
-        # to = datetime.strptime(to, '%Y-%m-%d').date()
+        if isinstance(when, str) == True:
+            when = datetime.strptime(when, '%Y-%m-%d').date()
+        if isinstance(to, str) == True:
+            to = datetime.strptime(to, '%Y-%m-%d').date()
         period = (to - when).days
         return period
 
