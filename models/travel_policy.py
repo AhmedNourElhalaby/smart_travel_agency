@@ -89,7 +89,9 @@ class TravelPolicy(models.Model):
     family_age = fields.One2many('policy.family.age','policy_id', ondelete='cascade', string='Family Age')
     price_details = fields.Boolean('Show Price Details In Policy', default=False)
 
-
+    def test(self):
+        self.send_mail_template('AhmedNourElhalaby@gmail.com')
+        
     def _get_periods(self):
         options = []
         data = self.env['travel.price.line'].search(
