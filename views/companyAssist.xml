@@ -32,7 +32,7 @@
 		<field name="name">Assistance Information List</field>
 		<field name="model">travel.company.assist</field>
 		<field name="arch" type="xml">
-			<tree create="false">
+			<tree>
 				<field name="company_name"/>
 <!--                <field name="logo_url"/>-->
                 <field name="hot_line"/>
