@@ -5,7 +5,8 @@
 		<field name="name">Assistance Information Form</field>
 		<field name="model">travel.company.assist</field>
 		<field name="arch" type="xml">
-			<form create="false">
+			<!-- <form create="false"> -->
+            <form>
                 <sheet>
                     <group>
                         <field name="company_name"/>
